@@ -27,8 +27,10 @@ img { display: block; max-width: 100%; height: auto; }
 .panel {
   position: sticky;
   top: 0;
+  /* lvh, not svh: when Safari's toolbar collapses mid-scroll the screen grows,
+     and an svh panel leaves a gap at the bottom. */
   height: 100vh;
-  height: 100svh;
+  height: 100lvh;
   overflow: hidden;
   border-radius: 28px 28px 0 0;
   box-shadow: 0 -24px 60px rgba(0, 0, 0, 0.55);
@@ -41,7 +43,7 @@ img { display: block; max-width: 100%; height: auto; }
   filter: brightness(calc(1 - 0.55 * var(--p, 0)));
   will-change: transform, filter;
 }
-.panel.last { position: relative; height: auto; min-height: 100svh; }
+.panel.last { position: relative; height: auto; min-height: 100lvh; }
 
 /* ---------- Hero ---------- */
 
@@ -172,7 +174,7 @@ img { display: block; max-width: 100%; height: auto; }
 
 .closing { background: var(--ink); }
 .closing .inner {
-  min-height: 100svh;
+  min-height: 100lvh;
   display: flex;
   flex-direction: column;
   align-items: center;
